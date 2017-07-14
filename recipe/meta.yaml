@@ -89,7 +89,7 @@ test:
     ] %}
     {% for each_hdf5_cmd in hdf5_cmds %}
     - command -v {{ each_hdf5_cmd }}        # [unix]
-    - where {{ each_hdf5_cmd }}             # [win]
+    # - where {{ each_hdf5_cmd }}             # [win]
     {% endfor %}
 
     # Verify libraries.
