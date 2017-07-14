@@ -1,13 +1,18 @@
---- hdf5-1.10.1.orig/test/Makefile.in	2017-04-27 15:56:04.000000000 -0300
-+++ hdf5-1.10.1/test/Makefile.in	2017-06-14 15:33:31.096078745 -0300
-@@ -1381,8 +1381,8 @@
- # As an exception, long-running tests should occur earlier in the list.
- # This gives them more time to run when tests are executing in parallel.
- TEST_PROG = testhdf5 \
--           cache cache_api cache_image cache_tagging lheap ohdr stab gheap \
--           evict_on_close farray earray btree2 fheap \
-+           cache_api cache_tagging lheap ohdr stab gheap \
-+           evict_on_close farray earray btree2 \
-            pool accum hyperslab istore bittests dt_arith page_buffer \
+--- hdf5-1.8.12.orig/test/Makefile.in   2013-11-21 15:14:03.000000000 +0000
++++ hdf5-1.8.12/test/Makefile.in    2017-07-14 10:47:16.000000000 +0100
+@@ -866,13 +866,13 @@
+ # These tests (fheap, btree2) are under development and are not used by
+ # the library yet. Move them to the end so that their failure do not block
+ # other current library code tests.
+-TEST_PROG = testhdf5 lheap ohdr stab gheap cache cache_api \
++TEST_PROG = testhdf5 lheap ohdr stab gheap cache_api \
+            pool accum hyperslab istore bittests dt_arith \
             dtypes dsets cmpd_dset filter_fail extend external efc objcopy links unlink \
-            twriteorder big mtime fillval mount flush1 flush2 app_ref enum \
+            big mtime fillval mount flush1 flush2 app_ref enum \
+            set_extent ttsafe \
+            getname vfd ntypes dangle dtransform reserved cross_read \
+-           freespace mf btree2 fheap file_image unregister
++           freespace mf btree2 file_image unregister
+
+
+ # These programs generate test files for the tests.  They don't need to be
