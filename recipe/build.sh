@@ -12,8 +12,7 @@ export LIBRARY_PATH="${PREFIX}/lib"
             --with-zlib="${PREFIX}" \
             --with-pthread=yes  \
             --enable-cxx \
-            --enable-fortran \
-            --enable-fortran2003 \
+            --enable-fortran=no \
             --with-default-plugindir="${PREFIX}/lib/hdf5/plugin" \
             --enable-threadsafe \
             --enable-build-mode=production \

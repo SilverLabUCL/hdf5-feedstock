@@ -6,20 +6,12 @@ environment:
 
   BINSTAR_TOKEN:
     # The BINSTAR_TOKEN secure variable. This is defined canonically in conda-forge.yml.
-    secure: MP4hZYylDyUWEsrt3u3cod2sbFeRwUziH02mvQOdbjsTO/l1yIxDkP/76rSIjcGC
+    secure: WAjy015QxDk2C6PWR1R6O7p567HryAq5IGghl5nKEXZtaeczGP74otg9IOojL7sb
 
   matrix:
-    - TARGET_ARCH: x86
-      CONDA_PY: 27
-      CONDA_INSTALL_LOCN: C:\\Miniconda
-
     - TARGET_ARCH: x64
       CONDA_PY: 27
       CONDA_INSTALL_LOCN: C:\\Miniconda-x64
-
-    - TARGET_ARCH: x86
-      CONDA_PY: 35
-      CONDA_INSTALL_LOCN: C:\\Miniconda35
 
     - TARGET_ARCH: x64
       CONDA_PY: 35
@@ -38,7 +30,7 @@ install:
         ff_ci_pr_build -v --ci "appveyor" "%APPVEYOR_ACCOUNT_NAME%/%APPVEYOR_PROJECT_SLUG%" "%APPVEYOR_BUILD_NUMBER%" "%APPVEYOR_PULL_REQUEST_NUMBER%"
         del ff_ci_pr_build.py
 
-    # Cywing's git breaks conda-build. (See https://github.com/conda-forge/conda-smithy-feedstock/pull/2.)
+    # Cygwin's git breaks conda-build. (See https://github.com/conda-forge/conda-smithy-feedstock/pull/2.)
     - cmd: rmdir C:\cygwin /s /q
 
     # Add path, activate `conda` and update conda.
@@ -63,4 +55,4 @@ build: off
 test_script:
     - conda build recipe --quiet
 deploy_script:
-    - cmd: upload_or_check_non_existence .\recipe conda-forge --channel=main
+    - cmd: upload_or_check_non_existence .\recipe jonc --channel=main
