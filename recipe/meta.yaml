@@ -55,8 +55,6 @@ test:
   files:
     - h5_cmprss.c
     - h5tutr_cmprss.cpp
-    - h5_cmprss.f90
-    - compound_fortran2003.f90
 
   commands:
     # Verify UNIX CLI tools.
@@ -64,8 +62,7 @@ test:
         "h5c++",
         "h5cc",
         "h5perf_serial",
-        "h5redeploy",
-        "h5fc"
+        "h5redeploy"
     ] %}
     {% for each_hdf5_unix_cmd in hdf5_unix_cmds %}
     - command -v {{ each_hdf5_unix_cmd }}   # [unix]
