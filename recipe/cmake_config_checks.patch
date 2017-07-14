@@ -1,0 +1,13 @@
+--- config/cmake/ConfigureChecks.cmake  2013-11-21 15:14:03.000000000 +0000
++++ config/cmake/ConfigureChecks.cmake.patched  2017-07-14 11:27:13.000000000 +0100
+@@ -185,7 +185,9 @@
+   ENDIF (NOT UNIX AND NOT CYGWIN AND NOT MINGW)
+   SET (H5_HAVE_FUNCTION 1)
+   SET (H5_GETTIMEOFDAY_GIVES_TZ 1)
+-  SET (H5_HAVE_TIMEZONE 1)
++  if (NOT MSVC14)
++    set (H5_HAVE_TIMEZONE 1)
++  endif ()
+   SET (H5_HAVE_GETTIMEOFDAY 1)
+   SET (H5_LONE_COLON 0)
+   IF (MINGW)

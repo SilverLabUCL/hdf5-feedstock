@@ -19,6 +19,8 @@ source:
     - test_Makefile.in.patch
     # Disable shared Fortran API building on OSX
     - osx_configure.patch  # [osx]
+    # Newer MSVC don't define timezone
+    - cmake_config_checks.patch  # [win]
 
 build:
   number: 0
